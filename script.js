@@ -31,27 +31,26 @@
 //   printed_place.innerText = inputvalue.value;
 // }
 
-let box_js = document.getElementById('print');
 let button = document.querySelector('button');
-let table = document.getElementById('table');
+button.addEventListener('click', boxcreater);
 
-button.addEventListener("click", boxcreater);
+let table = document.getElementById('table');
 
 function boxcreater(){
 
-  let collumn_js = document.getElementById('collumn').value;
-  let row_js = document.getElementById('row').value;
+  const collumn_js = parseInt(document.getElementById('collumn').value);
+  const row_js = parseInt(document.getElementById('row').value);
 
   table.setAttribute("border", "2");
 
   for(let i=0; i < row_js; i++){
-    let table_row = document.createElement('div');
+    let table_row = document.createElement("tr");
     table.appendChild(table_row);
 
-    for(let j=0; j < collumn_js; i++){
-      let table_column = document.createElement('div');
-      table_column.innerText = "table";
-      table_column.appendChild(table.row);
+    for(let j=0; j < collumn_js; j++){
+      let table_collumn = document.createElement("td");
+      table_collumn.innerText = "table";
+      table_row.appendChild(table_collumn);
     }
   }
 }
